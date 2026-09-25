@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>H2H Report Builder</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNGMDdGMUUiLz48cmVjdCB4PSIxMyIgeT0iOSIgd2lkdGg9IjM4IiBoZWlnaHQ9IjQ2IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNyA5aDMwYTQgNCAwIDAgMSA0IDR2NkgxM3YtNmE0IDQgMCAwIDEgNC00eiIgZmlsbD0iIzFGMzg2NCIvPjxyZWN0IHg9IjE3IiB5PSIyMyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIxLjUiIGZpbGw9IiNGQkQzQjAiLz48cmVjdCB4PSIyNCIgeT0iMzIiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjM4LjUiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjQ1IiB3aWR0aD0iMjMiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhBOTdBOCIvPjxwYXRoIGQ9Ik0yMC41IDMxdjE4IiBzdHJva2U9IiNGMDdGMUUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+Cg==">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAE8UlEQVR4nO3dz1HbQBiG8bWHO64AGsgMXZBjjmkhDXDGPqeBtJAjR9JFZmgAVwB3ZshJwRarPyuttN/37vM7Z0DSPvlYWcZsggEv91fvpY8B8+0Ox03pYyhyAARcj7UjX+2bETHWiHvRb0DEiFky7EW+MCFjjCXCzv4FiRmpcoad7QsRMubKEfY2x4EQM3LI0dGs/xGEjKVMndaTJzQxY0lT+5oUNDFjDVM6Sw6amLGm1N6SgiZmlJDS3eigiRklje1vVNDEDAvGdDgYNDHDkqEeszxYAazoDZrpDIv6uuwMmphhWVefbDkgJRo00xkexDr9FDQxw5N2r2w5IOUsaKYzPDrtlgkNKRelD2CKm8fb0odQhb9f/5Q+hGT/fyvAw3aDkMvxEPfucNy42XIQc1lerr/5oG8eb91cTHUe1mEbgo/tBmywHPXL/dW76Qlt+eLVzPK6mA3a8kWD3fUxGzQwxdbi/tnq/36cs7hOTGhIIWhIIWhIIWhIIWhIIWhIIWhIIWhIMRe0xRfr4Ye5oIE5CBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSNhZ/SfZy/1z6EDDS6/669CGcYUJDCkFDCkFDCkFDCkFDCkFDCkFDCkFDCkFDCkFDisu/U9jl7emh9CG4dfHlW+lDyEJiQr89PRDzTCrXTyJo5KEQtfugFRbBEu/X033QwCmChhSChhSChhSChhSChhSChhSChhT3Qau8B8EK79fTfdAh+F8EKxSuo0TQIWgsRkkq10/q7aMqi4LpZCY0EAJBQwxBQwpBQwpBQwpBQ4rUy3Yx7Q/k5sPUtUlP6Niny1v7xHnkJRt0X7hErUtyyzEm2Nf99eD24+ev37kOyby7H99LH0IWkkHPVVPIjeacvYctu+VAnQi6pcbpfMr7+RM0pBA0pBB0i/eborm8nz9BQwov20U0U8r7DVIK75O5QdA9VBa5Jmw5IIWgIYWgIYWgIYWgIYWgIYWgIYWgIYUHKz14UugPE7pDTTGHoHO+BB2hsripFM6boFsUFnUO7+dP0JBC0JBC0JBC0C0qL19N5f38CTrC+6JOpXDeBN1BYXFTqJwvTwp7qCxyTZjQkELQkELQkELQkELQkELQkELQkELQkMKDlR7e3xucQuUhEkFH1BRygz8aBBhE0C01TudT3s+foCGFoCGFoFu83xTN5f38CRpSeNkugj8a5Jdk0Jf75/C6vx78N0NUFrkmsluOvmDHxAyfZIMOIR4uMWuT3HKcIuC6SE9o1IegIYWgIYWgIYWgIYWgIYWgIWW7Oxw3pQ+ibeixNWywuE5MaEghaEgxG7TFH2f4YHV9zAYdgt2LVjvL67INIQSLN4YNyxevRpbXY3c4bkxP6Ibli1gTD+vgIugQfFxMZV6u/9lW4+X+6r3UgaTgPc7r8BJxCB/bZpdv8Pd0obGusy2H5ZtDoMtpt2720MAYn4JmSsOTdq9MaEiJBs2UhgexTpnQkNIZNFMalnX12TuhiRoW9XXJlgOuDA3ZwaCZ0vBk1IQmalgwpsPRWw6iRklj+0vaQxM1SkjpLvmmkKixptTeJr3KQdRYw5TOZoXp5RcC4MucgZll0hI2cpn70z/LgxW2IMghR0fZQ2RaI1XOgbjIZCVqjLHET/ZFtwqEjZglt6ir7X2JG2vcaxW5mSPueqz9gsE/lFpUW99fAdQAAAAASUVORK5CYII=">
+<meta name="theme-color" content="#F07F1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9EDF2; --panel:#FFFFFF; --ink:#16233A; --muted:#5B6878; --line:#CBD3DD; --soft:#F3F5F8;
+  --accent:#E8700F; --accent-ink:#FFFFFF; --accent-soft:#FDEBDC;
+  --warn:#9A4A00; --warn-bg:#FFF1DC; --bad-bg:#FFE7D6;
+  --focus:#1F63D6;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10161F; --panel:#18212D; --ink:#E6EBF2; --muted:#9AA6B5; --line:#2D3A4A; --soft:#1E2936;
+    --accent:#F2872C; --accent-ink:#1A0E03; --accent-soft:#3A2412;
+    --warn:#FFC37A; --warn-bg:#3A2A12; --bad-bg:#4A2A14; --focus:#7FB0FF;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10161F; --panel:#18212D; --ink:#E6EBF2; --muted:#9AA6B5; --line:#2D3A4A; --soft:#1E2936;
+  --accent:#F2872C; --accent-ink:#1A0E03; --accent-soft:#3A2412;
+  --warn:#FFC37A; --warn-bg:#3A2A12; --bad-bg:#4A2A14; --focus:#7FB0FF;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Barlow",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-variant-numeric:tabular-nums}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+.wrap{max-width:1500px;margin:0 auto;padding:20px clamp(12px,3vw,28px) 40px}
+header.top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+header.top img{width:40px;height:40px;flex:none}
+header.top h1{font-size:1.55rem;font-weight:700;margin:0;letter-spacing:-.01em}
+header.top p{margin:2px 0 0;color:var(--muted);max-width:70ch}
+
+.step{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;min-width:0}
+.step h2{font-size:1.05rem;margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
+.step h2 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.85rem;font-weight:700;flex:none;transform:translateY(3px)}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+
+.row1{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;margin-bottom:16px}
+.row2{display:grid;grid-template-columns:minmax(340px,440px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:980px){.row1,.row2{grid-template-columns:minmax(0,1fr)}}
+
+textarea{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line);border-radius:4px;background:var(--soft);padding:10px;font:13px/1.4 Consolas,"Courier New",monospace;white-space:pre;overflow:auto}
+.parseinfo{font-size:.88rem;color:var(--muted);margin-top:6px;min-height:1.3em}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+button.b{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:7px 14px;cursor:pointer;font-weight:600}
+button.b:hover{background:var(--soft)}
+button.b.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.b.primary:hover{filter:brightness(1.06)}
+button.b:disabled{opacity:.45;cursor:not-allowed}
+button.link{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.88rem}
+
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;margin-bottom:4px}
+.stepper{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.stepper button{border:0;background:var(--soft);width:34px;cursor:pointer;font-size:1.1rem}
+.stepper input{width:54px;border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);text-align:center;background:var(--panel);padding:6px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-block;padding:3px 9px;border:1px solid var(--line);border-radius:3px;font-size:.85rem;font-weight:600;color:var(--muted);background:var(--soft)}
+.chip input:checked + span{background:#1F3864;border-color:#1F3864;color:#fff}
+.chip input:focus-visible + span{outline:2px solid var(--focus);outline-offset:2px}
+
+/* rows to keep */
+.keeplist{border:1px solid var(--line);border-radius:4px;max-height:640px;overflow:auto}
+.keeplist table{border-collapse:collapse;width:100%;font-size:.9rem}
+.keeplist th{position:sticky;top:0;background:var(--soft);text-align:left;font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line);z-index:1}
+.keeplist td{padding:4px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.keeplist td.chk{width:32px}
+.keeplist td.chk input{width:16px;height:16px;cursor:pointer;accent-color:var(--accent)}
+.keeplist td.role{white-space:nowrap;color:var(--muted);width:1%}
+.keeplist td.num{text-align:right;white-space:nowrap}
+.keeplist tr.g td:first-child{box-shadow:inset 4px 0 0 var(--accent)}
+.keeplist tr.gstart td{border-top:2px solid var(--line)}
+.keeplist tr.gb{background:var(--soft)}
+.keeplist tr.std td.role{color:var(--ink);font-weight:600}
+.keeplist tr.off td{opacity:.5}
+.keeplist tr.off td.ident{text-decoration:line-through}
+.keeplist tr.bad{background:var(--bad-bg)}
+.flag{display:inline-block;margin-left:6px;font-size:.78rem;font-weight:600;color:var(--warn)}
+.empty{padding:26px 16px;color:var(--muted);text-align:center}
+
+.warns{margin:0 0 10px;padding:0;list-style:none}
+.warns li{background:var(--warn-bg);color:var(--warn);border-radius:4px;padding:7px 10px;margin-bottom:6px;font-size:.9rem;font-weight:500}
+
+/* report: mirrors the Excel sheet exactly */
+.reporthead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.summary{color:var(--muted);font-size:.92rem}
+.sheet{overflow-x:auto;border:1px solid var(--line);background:#fff;border-radius:4px}
+table.xl{border-collapse:collapse;font:10pt Arial,Helvetica,sans-serif;color:#000;background:#fff}
+table.xl th{background:#1F3864;color:#fff;font-weight:bold;text-align:center;border:1px solid #000;padding:3px 6px;white-space:nowrap}
+table.xl td{border:1px solid #000;padding:2px 6px;white-space:nowrap;text-align:right;min-width:60px}
+table.xl td:first-child,table.xl th:first-child{text-align:left;min-width:150px}
+table.xl th:first-child{text-align:center}
+table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
+.status{min-height:1.4em;font-size:.9rem;margin-top:8px;color:var(--muted)}
+.status.ok{color:#1C7C3A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .status.ok{color:#6FD08F}}
+:root[data-theme="dark"] .status.ok{color:#6FD08F}
+@media (prefers-reduced-motion:no-preference){.keeplist tr{transition:opacity .15s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNGMDdGMUUiLz48cmVjdCB4PSIxMyIgeT0iOSIgd2lkdGg9IjM4IiBoZWlnaHQ9IjQ2IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNyA5aDMwYTQgNCAwIDAgMSA0IDR2NkgxM3YtNmE0IDQgMCAwIDEgNC00eiIgZmlsbD0iIzFGMzg2NCIvPjxyZWN0IHg9IjE3IiB5PSIyMyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIxLjUiIGZpbGw9IiNGQkQzQjAiLz48cmVjdCB4PSIyNCIgeT0iMzIiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjM4LjUiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjQ1IiB3aWR0aD0iMjMiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhBOTdBOCIvPjxwYXRoIGQ9Ik0yMC41IDMxdjE4IiBzdHJva2U9IiNGMDdGMUUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+Cg==" alt="">
+    <div>
+      <h1>H2H Report Builder</h1>
+      <p>Paste the CCLAS export, untick any rows you don't want, and the report builds with no blank rows between groups.</p>
+    </div>
+  </header>
+
+  <div class="row1">
+    <section class="step" aria-labelledby="s1">
+      <h2 id="s1"><span class="n">1</span>Paste CCLAS export</h2>
+      <p class="hint">Copy the rows from the non routine template or CCLAS (starting at column A) and paste below. Including the header row is fine.</p>
+      <textarea id="paste" spellcheck="false" placeholder="Click here and press Ctrl+V"></textarea>
+      <div class="parseinfo" id="parseinfo"></div>
+      <div class="btnrow"><button class="b" id="clearBtn" type="button">Clear</button></div>
+    </section>
+
+    <section class="step" aria-labelledby="s1b">
+      <h2 id="s1b">Report settings</h2>
+      <div class="field">
+        <label for="std">Standard rows before the first group</label>
+        <div class="stepper">
+          <button type="button" id="stdMinus" aria-label="Fewer standard rows">&minus;</button>
+          <input id="std" type="number" min="0" value="1" inputmode="numeric">
+          <button type="button" id="stdPlus" aria-label="More standard rows">+</button>
+        </div>
+        <p class="hint" style="margin-top:6px">CRM or standard rows (e.g. ASCRM34) pasted above the AVG / DUP A / DUP B groups. Every row after these is grouped in threes.</p>
+      </div>
+      <div class="field">
+        <label id="colsLbl">Columns in the report</label>
+        <div class="chips" id="cols" role="group" aria-labelledby="colsLbl"></div>
+        <button class="link" type="button" id="colsAll" style="margin-top:8px">Show all columns</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="row2">
+    <section class="step" aria-labelledby="s2">
+      <h2 id="s2"><span class="n">2</span>Choose rows to keep</h2>
+      <p class="hint">Unticked rows are left out and the groups re-count from the rows you keep.</p>
+      <ul class="warns" id="warns"></ul>
+      <div class="keeplist" id="keeplist"><div class="empty">Paste data in step 1 to see the rows here.</div></div>
+      <div class="btnrow">
+        <button class="b" type="button" id="keepAll">Keep all</button>
+        <button class="b" type="button" id="keepNone">Untick all</button>
+      </div>
+    </section>
+
+    <section class="step" aria-labelledby="s3">
+      <div class="reporthead">
+        <div>
+          <h2 id="s3"><span class="n">3</span>H2H report</h2>
+          <div class="summary" id="summary">No rows yet.</div>
+        </div>
+        <div class="btnrow" style="margin-top:0">
+          <button class="b" type="button" id="copyBtn" disabled>Copy for Excel</button>
+          <button class="b primary" type="button" id="dlBtn" disabled>Download .xlsx</button>
+        </div>
+      </div>
+      <div class="sheet" id="sheet"></div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </section>
+  </div>
+</div>
+
+<script>
+/* ===== H2H core: parsing, grouping, xlsx export (no external libraries) ===== */
+var H2H = (function () {
+  // Report columns: label, source header in CCLAS export, fallback column index (A=0), decimals
+  var COLS = [
+    { key: 'LOI',   src: 'LOI',   idx: 15, dp: 2 },
+    { key: 'FE',    src: 'FE',    idx: 19, dp: 2 },
+    { key: 'P',     src: 'P',     idx: 20, dp: 3 },
+    { key: 'SIO2',  src: 'SIO2',  idx: 21, dp: 2 },
+    { key: 'AL2O3', src: 'AL2O3', idx: 22, dp: 2 },
+    { key: 'TIO2',  src: 'TIO2',  idx: 23, dp: 3 },
+    { key: 'CAO',   src: 'CAO',   idx: 24, dp: 3 },
+    { key: 'MN',    src: 'MN',    idx: 25, dp: 3 },
+    { key: 'MGO',   src: 'MGO',   idx: 26, dp: 3 },
+    { key: 'S',     src: 'S',     idx: 27, dp: 3 },
+    { key: 'K2O',   src: 'K2O',   idx: 28, dp: 3 },
+    { key: 'CU',    src: 'CU',    idx: 33, dp: 3 }
+  ];
+  var IDENT_IDX = 2; // column C
+
+  function toValue(s) {
+    if (s == null) return '';
+    s = String(s).trim();
+    if (s === '') return '';
+    var n = Number(s.replace(/,/g, ''));
+    return (isFinite(n) && /^[-+]?[\d.,]+(e[-+]?\d+)?$/i.test(s)) ? n : s;
+  }
+
+  // Parse pasted tab-separated text (from Excel / CCLAS export)
+  function parse(text) {
+    var lines = String(text || '').replace(/\r\n?/g, '\n').split('\n');
+    var map = { ident: IDENT_IDX };
+    COLS.forEach(function (c) { map[c.key] = c.idx; });
+    var rows = [], headerFound = false;
+    lines.forEach(function (line) {
+      if (!line.trim()) return;
+      var cells = line.split('\t');
+      var upper = cells.map(function (c) { return c.trim().toUpperCase(); });
+      var identPos = upper.indexOf('IDENT');
+      if (identPos !== -1) { // header row: map columns by name
+        headerFound = true;
+        map.ident = identPos;
+        COLS.forEach(function (c) { var p = upper.indexOf(c.src); if (p !== -1) map[c.key] = p; });
+        return;
+      }
+      var ident = (cells[map.ident] || '').trim();
+      if (!ident || /^paste cclas/i.test(ident)) return; // blank or instruction row
+      var vals = {};
+      COLS.forEach(function (c) { vals[c.key] = toValue(cells[map[c.key]]); });
+      rows.push({ id: rows.length, ident: ident, vals: vals });
+    });
+    return { rows: rows, headerFound: headerFound };
+  }
+
+  // Group name = first two words of Sample Ident (same as the Excel formula)
+  function groupName(ident) {
+    var w = String(ident).trim().split(/\s+/);
+    return w.length >= 3 ? w[0] + ' ' + w[1] : w[0];
+  }
+
+  // Build report from kept rows: N standalone rows, then fixed 3-row groups
+  function build(rows, keep, standalone) {
+    var kept = rows.filter(function (r) { return keep[r.id] !== false; });
+    var out = [], roles = {}, warnings = [];
+    var n = Math.max(0, Math.min(standalone | 0, kept.length));
+    kept.slice(0, n).forEach(function (r) {
+      out.push({ type: 'row', row: r });
+      roles[r.id] = { label: 'Standard', group: 0 };
+    });
+    var rest = kept.slice(n), g = 0;
+    for (var i = 0; i < rest.length; i += 3) {
+      g++;
+      var members = rest.slice(i, i + 3);
+      var name = groupName(members[0].ident);
+      out.push({ type: 'group', name: name, group: g });
+      members.forEach(function (r, k) {
+        var mismatch = groupName(r.ident) !== name;
+        out.push({ type: 'row', row: r, group: g });
+        roles[r.id] = { label: 'Group ' + g + ', row ' + (k + 1), group: g, mismatch: mismatch };
+      });
+      if (members.length < 3) warnings.push('Group ' + g + ' (' + name + ') has only ' + members.length + ' row' + (members.length === 1 ? '' : 's') + '. Untick a row or change the standalone count so every group has 3.');
+    }
+    var mism = kept.filter(function (r) { return roles[r.id] && roles[r.id].mismatch; }).length;
+    if (mism) warnings.push(mism + ' row' + (mism === 1 ? ' does' : 's do') + ' not match the name of its group. Check the highlighted rows.');
+    return { out: out, roles: roles, warnings: warnings, keptCount: kept.length, standalone: n, groups: g };
+  }
+
+  function fmt(v, dp) { return typeof v === 'number' ? v.toFixed(dp) : (v == null ? '' : String(v)); }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  // ---------- Clipboard (HTML table Excel understands + TSV) ----------
+  function clipboard(report, cols) {
+    var th = 'style="background:#1F3864;color:#FFFFFF;font-weight:bold;text-align:center;font-family:Arial;font-size:10pt;border:.5pt solid #000"';
+    var td = 'font-family:Arial;font-size:10pt;border:.5pt solid #000;';
+    var h = '<table border="1" style="border-collapse:collapse"><tr><th ' + th + '>Sample Ident</th>';
+    var t = ['Sample Ident'].concat(cols.map(function (c) { return c.key; })).join('\t') + '\n';
+    cols.forEach(function (c) { h += '<th ' + th + '>' + c.key + '</th>'; });
+    h += '</tr>';
+    report.out.forEach(function (e) {
+      if (e.type === 'group') {
+        h += '<tr><td style="' + td + 'font-weight:bold;background:#D9D9D9">' + esc(e.name) + '</td>';
+        cols.forEach(function () { h += '<td style="' + td + 'background:#D9D9D9"></td>'; });
+        h += '</tr>';
+        t += e.name + '\t'.repeat(cols.length) + '\n';
+      } else {
+        h += '<tr><td style="' + td + '">' + esc(e.row.ident) + '</td>';
+        var line = [e.row.ident];
+        cols.forEach(function (c) {
+          var v = e.row.vals[c.key];
+          var nf = c.dp === 3 ? '0.000' : '0.00';
+          h += '<td style="' + td + 'text-align:right;mso-number-format:\'' + nf + '\'">' + esc(v === '' ? '' : String(v)) + '</td>';
+          line.push(v === '' ? '' : String(v));
+        });
+        h += '</tr>';
+        t += line.join('\t') + '\n';
+      }
+    });
+    return { html: h + '</table>', text: t };
+  }
+
+  // ---------- Minimal XLSX writer (stored zip, styled) ----------
+  var CRC = (function () { var t = [], c; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(b) { var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = CRC[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function utf8(s) { return new TextEncoder().encode(s); }
+
+  function zip(files) { // files: [{name, data:string}]
+    var parts = [], central = [], offset = 0;
+    function u16(v) { return [v & 255, (v >>> 8) & 255]; }
+    function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+    files.forEach(function (f) {
+      var name = utf8(f.name), data = utf8(f.data), crc = crc32(data);
+      var local = [].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0));
+      parts.push(new Uint8Array(local), name, data);
+      central.push([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(offset)), name);
+      offset += local.length + name.length + data.length;
+    });
+    var cdSize = 0, cdParts = [];
+    central.forEach(function (p, i) { var a = i % 2 === 0 ? new Uint8Array(p) : p; cdParts.push(a); cdSize += a.length; });
+    var end = new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length), u32(cdSize), u32(offset), u16(0)));
+    var all = parts.concat(cdParts, [end]), len = 0;
+    all.forEach(function (a) { len += a.length; });
+    var outb = new Uint8Array(len), pos = 0;
+    all.forEach(function (a) { outb.set(a, pos); pos += a.length; });
+    return outb;
+  }
+
+  function colName(i) { var s = ''; i++; while (i > 0) { var m = (i - 1) % 26; s = String.fromCharCode(65 + m) + s; i = Math.floor((i - 1) / 26); } return s; }
+  function xesc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, ''); }
+
+  function xlsx(report, cols) {
+    var S = { head: 1, ident: 2, n2: 3, n3: 4, gname: 5, gcell: 6 };
+    function cell(ref, v, s) {
+      if (v === '' || v == null) return '<c r="' + ref + '" s="' + s + '"/>';
+      if (typeof v === 'number') return '<c r="' + ref + '" s="' + s + '"><v>' + v + '</v></c>';
+      return '<c r="' + ref + '" s="' + s + '" t="inlineStr"><is><t xml:space="preserve">' + xesc(v) + '</t></is></c>';
+    }
+    var rowsXml = '', r = 1, last = colName(cols.length);
+    rowsXml += '<row r="1">' + cell('A1', 'Sample Ident', S.head) + cols.map(function (c, i) { return cell(colName(i + 1) + '1', c.key, S.head); }).join('') + '</row>';
+    report.out.forEach(function (e) {
+      r++;
+      if (e.type === 'group') {
+        rowsXml += '<row r="' + r + '">' + cell('A' + r, e.name, S.gname) + cols.map(function (c, i) { return cell(colName(i + 1) + r, '', S.gcell); }).join('') + '</row>';
+      } else {
+        rowsXml += '<row r="' + r + '">' + cell('A' + r, e.row.ident, S.ident) + cols.map(function (c, i) { return cell(colName(i + 1) + r, e.row.vals[c.key], c.dp === 3 ? S.n3 : S.n2); }).join('') + '</row>';
+      }
+    });
+    var sheet = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+      '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+      '<dimension ref="A1:' + last + r + '"/>' +
+      '<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>' +
+      '<sheetFormatPr defaultRowHeight="12.75"/>' +
+      '<cols><col min="1" max="1" width="20" customWidth="1"/>' + (cols.length ? '<col min="2" max="' + (cols.length + 1) + '" width="9" customWidth="1"/>' : '') + '</cols>' +
+      '<sheetData>' + rowsXml + '</sheetData>' +
+      '<pageMargins left="0.5" right="0.5" top="0.75" bottom="0.75" header="0.3" footer="0.3"/>' +
+      '</worksheet>';
+    var styles = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+      '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+      '<numFmts count="2"><numFmt numFmtId="164" formatCode="0.00"/><numFmt numFmtId="165" formatCode="0.000"/></numFmts>' +
+      '<fonts count="3"><font><sz val="10"/><name val="Arial"/><family val="2"/></font><font><b/><sz val="10"/><color rgb="FFFFFFFF"/><name val="Arial"/><family val="2"/></font><font><b/><sz val="10"/><name val="Arial"/><family val="2"/></font></fonts>' +
+      '<fills count="4"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3864"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFD9D9D9"/><bgColor indexed="64"/></patternFill></fill></fills>' +
+      '<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color auto="1"/></left><right style="thin"><color auto="1"/></right><top style="thin"><color auto="1"/></top><bottom style="thin"><color auto="1"/></bottom><diagonal/></border></borders>' +
+      '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>' +
+      '<cellXfs count="7">' +
+      '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>' +
+      '<xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center"/></xf>' +
+      '<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"/>' +
+      '<xf numFmtId="164" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right"/></xf>' +
+      '<xf numFmtId="165" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right"/></xf>' +
+      '<xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/>' +
+      '<xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/>' +
+      '</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+    return zip([
+      { name: '[Content_Types].xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>' },
+      { name: '_rels/.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>' },
+      { name: 'xl/workbook.xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="H2H Report" sheetId="1" r:id="rId1"/></sheets></workbook>' },
+      { name: 'xl/_rels/workbook.xml.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>' },
+      { name: 'xl/styles.xml', data: styles },
+      { name: 'xl/worksheets/sheet1.xml', data: sheet }
+    ]);
+  }
+
+  return { COLS: COLS, parse: parse, build: build, groupName: groupName, fmt: fmt, esc: esc, clipboard: clipboard, xlsx: xlsx };
+})();
+
+</script>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var state = { text:'', std:1, keep:{}, cols:{} };
+  var parsed = { rows:[], headerFound:false }, report = null;
+  H2H.COLS.forEach(function(c){ state.cols[c.key] = true; });
+
+  // per-viewer convenience: remember the last paste and settings
+  try {
+    var saved = JSON.parse(localStorage.getItem('h2h-report-state') || 'null');
+    if (saved && typeof saved === 'object') {
+      state.text = saved.text || ''; state.std = saved.std != null ? saved.std : 1;
+      state.keep = saved.keep || {}; if (saved.cols) Object.keys(state.cols).forEach(function(k){ if (k in saved.cols) state.cols[k] = !!saved.cols[k]; });
+    }
+  } catch (e) {}
+  function persist(){ try { localStorage.setItem('h2h-report-state', JSON.stringify(state)); } catch (e) {} }
+
+  function activeCols(){ return H2H.COLS.filter(function(c){ return state.cols[c.key]; }); }
+
+  // ---- column chips
+  function renderChips(){
+    $('cols').innerHTML = H2H.COLS.map(function(c){
+      return '<label class="chip"><input type="checkbox" data-col="'+c.key+'"'+(state.cols[c.key]?' checked':'')+'><span>'+c.key+'</span></label>';
+    }).join('');
+  }
+  $('cols').addEventListener('change', function(e){
+    var k = e.target.getAttribute('data-col'); if (!k) return;
+    state.cols[k] = e.target.checked; persist(); renderReport();
+  });
+  $('colsAll').addEventListener('click', function(){ H2H.COLS.forEach(function(c){ state.cols[c.key]=true; }); renderChips(); persist(); renderReport(); });
+
+  // ---- paste
+  var t;
+  $('paste').addEventListener('input', function(){ clearTimeout(t); t = setTimeout(function(){ setText($('paste').value); }, 150); });
+  $('paste').addEventListener('paste', function(){ var ta = this; setTimeout(function(){ ta.scrollLeft = 0; ta.scrollTop = 0; }, 0); });
+  $('clearBtn').addEventListener('click', function(){ $('paste').value=''; setText(''); $('paste').focus(); });
+  function setText(txt){
+    if (txt !== state.text) state.keep = {};
+    state.text = txt; parsed = H2H.parse(txt); persist(); renderAll();
+  }
+
+  // ---- standalone count
+  function setStd(v){ v = Math.max(0, parseInt(v,10) || 0); state.std = v; $('std').value = v; persist(); renderAll(); }
+  $('std').addEventListener('change', function(){ setStd(this.value); });
+  $('stdMinus').addEventListener('click', function(){ setStd(state.std - 1); });
+  $('stdPlus').addEventListener('click', function(){ setStd(state.std + 1); });
+
+  // ---- keep toggles
+  $('keeplist').addEventListener('change', function(e){
+    var id = e.target.getAttribute('data-id'); if (id == null) return;
+    if (e.target.checked) delete state.keep[id]; else state.keep[id] = false;
+    persist(); renderAll(id);
+  });
+  $('keepAll').addEventListener('click', function(){ state.keep = {}; persist(); renderAll(); });
+  $('keepNone').addEventListener('click', function(){ parsed.rows.forEach(function(r){ state.keep[r.id]=false; }); persist(); renderAll(); });
+
+  function renderAll(focusId){
+    report = H2H.build(parsed.rows, state.keep, state.std);
+    var n = parsed.rows.length;
+    $('parseinfo').textContent = !state.text.trim() ? '' :
+      n === 0 ? 'No sample rows found. Check that Sample Ident (IDENT) is in column C, or include the header row.' :
+      n + ' row' + (n===1?'':'s') + ' read. ' + (parsed.headerFound ? 'Header row found, columns matched by name.' : 'No header row, columns read by position (IDENT in column C).');
+    renderKeep(focusId); renderReport();
+  }
+
+  function renderKeep(focusId){
+    var box = $('keeplist');
+    if (!parsed.rows.length){ box.innerHTML = '<div class="empty">Paste data in step 1 to see the rows here.</div>'; $('warns').innerHTML=''; return; }
+    var prevGroup = null, html = '<table><thead><tr><th><span class="sr" style="position:absolute;left:-9999px">Keep</span></th><th>Position</th><th>Sample Ident</th><th style="text-align:right">FE</th></tr></thead><tbody>';
+    parsed.rows.forEach(function(r){
+      var role = report.roles[r.id], on = state.keep[r.id] !== false, cls = [];
+      if (!on) cls.push('off');
+      if (role && role.group){ cls.push('g'); if (role.group % 2 === 0) cls.push('gb'); if (role.group !== prevGroup) cls.push('gstart'); prevGroup = role.group; }
+      else if (role) cls.push('std');
+      if (role && role.mismatch) cls.push('bad');
+      html += '<tr class="'+cls.join(' ')+'"><td class="chk"><input type="checkbox" data-id="'+r.id+'"'+(on?' checked':'')+' aria-label="Keep '+H2H.esc(r.ident)+'"></td>' +
+        '<td class="role">'+(role ? role.label : 'Left out')+'</td>' +
+        '<td class="ident">'+H2H.esc(r.ident)+(role && role.mismatch ? '<span class="flag">Name differs from group</span>' : '')+'</td>' +
+        '<td class="num">'+H2H.esc(H2H.fmt(r.vals.FE,2))+'</td></tr>';
+    });
+    box.innerHTML = html + '</tbody></table>';
+    $('warns').innerHTML = report.warnings.map(function(w){ return '<li>'+H2H.esc(w)+'</li>'; }).join('');
+    if (focusId != null){ var el = box.querySelector('input[data-id="'+focusId+'"]'); if (el) el.focus({preventScroll:true}); }
+  }
+
+  function renderReport(){
+    if (!report) report = H2H.build(parsed.rows, state.keep, state.std);
+    var cols = activeCols(), has = report.out.length > 0;
+    $('copyBtn').disabled = $('dlBtn').disabled = !has;
+    if (!has){ $('sheet').innerHTML = ''; $('summary').textContent = parsed.rows.length ? 'All rows are unticked.' : 'No rows yet.'; return; }
+    var s = report.keptCount + ' row' + (report.keptCount===1?'':'s') + ' kept: ' + report.standalone + ' standard' + (report.standalone===1?'':'s') + ', ' + report.groups + ' group' + (report.groups===1?'':'s') + '.';
+    $('summary').textContent = s;
+    var h = '<table class="xl"><thead><tr><th>Sample Ident</th>' + cols.map(function(c){ return '<th>'+c.key+'</th>'; }).join('') + '</tr></thead><tbody>';
+    report.out.forEach(function(e){
+      if (e.type === 'group') h += '<tr class="grp"><td>'+H2H.esc(e.name)+'</td>' + cols.map(function(){ return '<td></td>'; }).join('') + '</tr>';
+      else h += '<tr><td>'+H2H.esc(e.row.ident)+'</td>' + cols.map(function(c){ return '<td>'+H2H.esc(H2H.fmt(e.row.vals[c.key], c.dp))+'</td>'; }).join('') + '</tr>';
+    });
+    $('sheet').innerHTML = h + '</tbody></table>';
+  }
+
+  function status(msg, ok){ var el = $('status'); el.textContent = msg; el.className = 'status' + (ok ? ' ok' : ''); }
+
+  // ---- copy for Excel (keeps header colour, grey group rows and decimals)
+  $('copyBtn').addEventListener('click', function(){
+    var cb = H2H.clipboard(report, activeCols());
+    function fallback(){
+      var div = document.createElement('div');
+      div.contentEditable = 'true'; div.style.cssText = 'position:fixed;left:-9999px;top:0';
+      div.innerHTML = cb.html; document.body.appendChild(div);
+      var range = document.createRange(); range.selectNodeContents(div);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      sel.removeAllRanges(); div.remove();
+      status(ok ? 'Copied. Click cell A1 in Excel and press Ctrl+V.' : 'Copy was blocked by the browser. Use Download .xlsx instead.', ok);
+    }
+    if (navigator.clipboard && window.ClipboardItem){
+      navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([cb.html], {type:'text/html'}), 'text/plain': new Blob([cb.text], {type:'text/plain'}) })])
+        .then(function(){ status('Copied. Click cell A1 in Excel and press Ctrl+V.', true); }, fallback);
+    } else fallback();
+  });
+
+  // ---- download .xlsx
+  var dlCap = (window.claude && typeof window.claude.use === 'function') ? window.claude.use('downloads').catch(function(){ return null; }) : Promise.resolve(null);
+  function fileName(){
+    var d = new Date(), p = function(n){ return String(n).padStart(2,'0'); };
+    return 'H2H_Report_' + d.getFullYear() + '-' + p(d.getMonth()+1) + '-' + p(d.getDate()) + '_' + p(d.getHours()) + p(d.getMinutes()) + '.xlsx';
+  }
+  $('dlBtn').addEventListener('click', function(){
+    var bytes = H2H.xlsx(report, activeCols()), name = fileName();
+    var blob = new Blob([bytes], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    status('Preparing ' + name + '…');
+    dlCap.then(function(dl){
+      if (dl){
+        return dl.save({ filename:name, data:blob }).then(function(){ status('Saved ' + name + '.', true); }, function(err){
+          var c = err && err.code;
+          status(c === 'declined' ? 'Download cancelled.' : c === 'rate_limited' ? 'A save prompt is already open. Finish it, then try again.' : 'Could not save the file (' + (c || 'error') + ').');
+        });
+      }
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+      status('Downloaded ' + name + '.', true);
+    });
+  });
+
+  // ---- start
+  renderChips();
+  $('std').value = state.std;
+  $('paste').value = state.text;
+  parsed = H2H.parse(state.text);
+  renderAll();
+})();
+</script>
+</body>
+</html>
