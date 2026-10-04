@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>H2H Report Builder</title>
+<title>H2H Report Builder v5</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNGMDdGMUUiLz48cmVjdCB4PSIxMyIgeT0iOSIgd2lkdGg9IjM4IiBoZWlnaHQ9IjQ2IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNyA5aDMwYTQgNCAwIDAgMSA0IDR2NkgxM3YtNmE0IDQgMCAwIDEgNC00eiIgZmlsbD0iIzFGMzg2NCIvPjxyZWN0IHg9IjE3IiB5PSIyMyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIxLjUiIGZpbGw9IiNGQkQzQjAiLz48cmVjdCB4PSIyNCIgeT0iMzIiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjM4LjUiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjQ1IiB3aWR0aD0iMjMiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhBOTdBOCIvPjxwYXRoIGQ9Ik0yMC41IDMxdjE4IiBzdHJva2U9IiNGMDdGMUUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+Cg==">
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAE8UlEQVR4nO3dz1HbQBiG8bWHO64AGsgMXZBjjmkhDXDGPqeBtJAjR9JFZmgAVwB3ZshJwRarPyuttN/37vM7Z0DSPvlYWcZsggEv91fvpY8B8+0Ox03pYyhyAARcj7UjX+2bETHWiHvRb0DEiFky7EW+MCFjjCXCzv4FiRmpcoad7QsRMubKEfY2x4EQM3LI0dGs/xGEjKVMndaTJzQxY0lT+5oUNDFjDVM6Sw6amLGm1N6SgiZmlJDS3eigiRklje1vVNDEDAvGdDgYNDHDkqEeszxYAazoDZrpDIv6uuwMmphhWVefbDkgJRo00xkexDr9FDQxw5N2r2w5IOUsaKYzPDrtlgkNKRelD2CKm8fb0odQhb9f/5Q+hGT/fyvAw3aDkMvxEPfucNy42XIQc1lerr/5oG8eb91cTHUe1mEbgo/tBmywHPXL/dW76Qlt+eLVzPK6mA3a8kWD3fUxGzQwxdbi/tnq/36cs7hOTGhIIWhIIWhIIWhIIWhIIWhIIWhIIWhIMRe0xRfr4Ye5oIE5CBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSNhZ/SfZy/1z6EDDS6/669CGcYUJDCkFDCkFDCkFDCkFDCkFDCkFDCkFDCkFDCkFDisu/U9jl7emh9CG4dfHlW+lDyEJiQr89PRDzTCrXTyJo5KEQtfugFRbBEu/X033QwCmChhSChhSChhSChhSChhSChhSChhT3Qau8B8EK79fTfdAh+F8EKxSuo0TQIWgsRkkq10/q7aMqi4LpZCY0EAJBQwxBQwpBQwpBQwpBQ4rUy3Yx7Q/k5sPUtUlP6Niny1v7xHnkJRt0X7hErUtyyzEm2Nf99eD24+ev37kOyby7H99LH0IWkkHPVVPIjeacvYctu+VAnQi6pcbpfMr7+RM0pBA0pBB0i/eborm8nz9BQwov20U0U8r7DVIK75O5QdA9VBa5Jmw5IIWgIYWgIYWgIYWgIYWgIYWgIYWgIYUHKz14UugPE7pDTTGHoHO+BB2hsripFM6boFsUFnUO7+dP0JBC0JBC0JBC0C0qL19N5f38CTrC+6JOpXDeBN1BYXFTqJwvTwp7qCxyTZjQkELQkELQkELQkELQkELQkELQkELQkMKDlR7e3xucQuUhEkFH1BRygz8aBBhE0C01TudT3s+foCGFoCGFoFu83xTN5f38CRpSeNkugj8a5Jdk0Jf75/C6vx78N0NUFrkmsluOvmDHxAyfZIMOIR4uMWuT3HKcIuC6SE9o1IegIYWgIYWgIYWgIYWgIYWgIWW7Oxw3pQ+ibeixNWywuE5MaEghaEgxG7TFH2f4YHV9zAYdgt2LVjvL67INIQSLN4YNyxevRpbXY3c4bkxP6Ibli1gTD+vgIugQfFxMZV6u/9lW4+X+6r3UgaTgPc7r8BJxCB/bZpdv8Pd0obGusy2H5ZtDoMtpt2720MAYn4JmSsOTdq9MaEiJBs2UhgexTpnQkNIZNFMalnX12TuhiRoW9XXJlgOuDA3ZwaCZ0vBk1IQmalgwpsPRWw6iRklj+0vaQxM1SkjpLvmmkKixptTeJr3KQdRYw5TOZoXp5RcC4MucgZll0hI2cpn70z/LgxW2IMghR0fZQ2RaI1XOgbjIZCVqjLHET/ZFtwqEjZglt6ir7X2JG2vcaxW5mSPueqz9gsE/lFpUW99fAdQAAAAASUVORK5CYII=">
 <meta name="theme-color" content="#F07F1E">
@@ -106,6 +106,10 @@ table.xl td{border:1px solid #000;padding:2px 6px;white-space:nowrap;text-align:
 table.xl td:first-child,table.xl th:first-child{text-align:left;min-width:150px}
 table.xl th:first-child{text-align:center}
 table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
+.toggle{display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
+.toggle input{width:16px;height:16px;accent-color:var(--accent)}
+.ver{display:inline-block;margin-left:8px;font-size:.8rem;font-weight:700;color:var(--accent-ink);background:var(--accent);border-radius:3px;padding:1px 6px;vertical-align:middle}
+footer.foot{margin-top:22px;color:var(--muted);font-size:.85rem}
 .status{min-height:1.4em;font-size:.9rem;margin-top:8px;color:var(--muted)}
 .status.ok{color:#1C7C3A}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .status.ok{color:#6FD08F}}
@@ -118,7 +122,7 @@ table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
   <header class="top">
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNGMDdGMUUiLz48cmVjdCB4PSIxMyIgeT0iOSIgd2lkdGg9IjM4IiBoZWlnaHQ9IjQ2IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNyA5aDMwYTQgNCAwIDAgMSA0IDR2NkgxM3YtNmE0IDQgMCAwIDEgNC00eiIgZmlsbD0iIzFGMzg2NCIvPjxyZWN0IHg9IjE3IiB5PSIyMyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjUiIHJ4PSIxLjUiIGZpbGw9IiNGQkQzQjAiLz48cmVjdCB4PSIyNCIgeT0iMzIiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjM4LjUiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOEE5N0E4Ii8+PHJlY3QgeD0iMjQiIHk9IjQ1IiB3aWR0aD0iMjMiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhBOTdBOCIvPjxwYXRoIGQ9Ik0yMC41IDMxdjE4IiBzdHJva2U9IiNGMDdGMUUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+Cg==" alt="">
     <div>
-      <h1>H2H Report Builder</h1>
+      <h1>H2H Report Builder <span class="ver">v5</span></h1>
       <p>Paste the CCLAS export, untick any rows you don't want, and the report builds with no blank rows between groups.</p>
     </div>
   </header>
@@ -138,7 +142,7 @@ table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
         <label for="std">Standard rows before the first group</label>
         <div class="stepper">
           <button type="button" id="stdMinus" aria-label="Fewer standard rows">&minus;</button>
-          <input id="std" type="number" min="0" value="1" inputmode="numeric">
+          <input id="std" type="number" min="0" value="0" inputmode="numeric">
           <button type="button" id="stdPlus" aria-label="More standard rows">+</button>
         </div>
         <p class="hint" style="margin-top:6px">CRM or standard rows (e.g. ASCRM34) pasted above the AVG / DUP A / DUP B groups. Every row after these is grouped in threes.</p>
@@ -148,17 +152,20 @@ table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
         <div class="chips" id="cols" role="group" aria-labelledby="colsLbl"></div>
         <button class="link" type="button" id="colsAll" style="margin-top:8px">Show all columns</button>
       </div>
+      <div class="field">
+        <label class="toggle"><input type="checkbox" id="showGroups"> Show grey group name rows</label>
+        <p class="hint" style="margin-top:4px">Off: the report lists only the sample rows, with no grey rows between groups.</p>
+      </div>
     </section>
   </div>
 
   <div class="row2">
     <section class="step" aria-labelledby="s2">
       <h2 id="s2"><span class="n">2</span>Choose rows to keep</h2>
-      <p class="hint">Unticked rows are left out and the groups re-count from the rows you keep.</p>
-      <ul class="warns" id="warns"></ul>
+      <p class="hint">Unticked rows are left out and the groups re-count from the rows you keep. Rows with no results (#VALUE!) start unticked.</p>
       <div class="keeplist" id="keeplist"><div class="empty">Paste data in step 1 to see the rows here.</div></div>
       <div class="btnrow">
-        <button class="b" type="button" id="keepAll">Keep all</button>
+        <button class="b" type="button" id="keepAll">Reset ticks</button>
         <button class="b" type="button" id="keepNone">Untick all</button>
       </div>
     </section>
@@ -178,6 +185,7 @@ table.xl tr.grp td{background:#D9D9D9;font-weight:bold}
       <div class="status" id="status" role="status" aria-live="polite"></div>
     </section>
   </div>
+  <footer class="foot">H2H Report Builder v5. Standard rows default to 0; grey group rows hidden by default; rows with no results start unticked.</footer>
 </div>
 
 <script>
@@ -229,7 +237,9 @@ var H2H = (function () {
       if (!ident || /^paste cclas/i.test(ident)) return; // blank or instruction row
       var vals = {};
       COLS.forEach(function (c) { vals[c.key] = toValue(cells[map[c.key]]); });
-      rows.push({ id: rows.length, ident: ident, vals: vals });
+      // No results = FE missing/#VALUE! or fewer than half the analytes are numbers
+      var nums = COLS.filter(function (c) { return typeof vals[c.key] === 'number'; }).length;
+      rows.push({ id: rows.length, ident: ident, vals: vals, noData: typeof vals.FE !== 'number' || nums < COLS.length / 2 });
     });
     return { rows: rows, headerFound: headerFound };
   }
@@ -240,9 +250,18 @@ var H2H = (function () {
     return w.length >= 3 ? w[0] + ' ' + w[1] : w[0];
   }
 
+  // Explicit tick/untick wins; otherwise rows with no results start unticked
+  function isKept(r, keep) { var k = keep[r.id]; return k === true || k === false ? k : !r.noData; }
+
+  // Drop the grey group-name rows when they are switched off
+  function visible(report, showGroups) {
+    if (showGroups) return report;
+    return { out: report.out.filter(function (e) { return e.type !== 'group'; }) };
+  }
+
   // Build report from kept rows: N standalone rows, then fixed 3-row groups
   function build(rows, keep, standalone) {
-    var kept = rows.filter(function (r) { return keep[r.id] !== false; });
+    var kept = rows.filter(function (r) { return isKept(r, keep); });
     var out = [], roles = {}, warnings = [];
     var n = Math.max(0, Math.min(standalone | 0, kept.length));
     kept.slice(0, n).forEach(function (r) {
@@ -382,26 +401,26 @@ var H2H = (function () {
     ]);
   }
 
-  return { COLS: COLS, parse: parse, build: build, groupName: groupName, fmt: fmt, esc: esc, clipboard: clipboard, xlsx: xlsx };
+  return { isKept: isKept, visible: visible, COLS: COLS, parse: parse, build: build, groupName: groupName, fmt: fmt, esc: esc, clipboard: clipboard, xlsx: xlsx };
 })();
 
 </script>
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var state = { text:'', std:1, keep:{}, cols:{} };
+  var state = { text:'', std:0, keep:{}, cols:{}, showGroups:false };
   var parsed = { rows:[], headerFound:false }, report = null;
   H2H.COLS.forEach(function(c){ state.cols[c.key] = true; });
 
   // per-viewer convenience: remember the last paste and settings
   try {
-    var saved = JSON.parse(localStorage.getItem('h2h-report-state') || 'null');
+    var saved = JSON.parse(localStorage.getItem('h2h-report-state-v5') || 'null');
     if (saved && typeof saved === 'object') {
-      state.text = saved.text || ''; state.std = saved.std != null ? saved.std : 1;
-      state.keep = saved.keep || {}; if (saved.cols) Object.keys(state.cols).forEach(function(k){ if (k in saved.cols) state.cols[k] = !!saved.cols[k]; });
+      state.text = saved.text || ''; state.std = saved.std != null ? saved.std : 0;
+      state.keep = saved.keep || {}; state.showGroups = !!saved.showGroups; if (saved.cols) Object.keys(state.cols).forEach(function(k){ if (k in saved.cols) state.cols[k] = !!saved.cols[k]; });
     }
   } catch (e) {}
-  function persist(){ try { localStorage.setItem('h2h-report-state', JSON.stringify(state)); } catch (e) {} }
+  function persist(){ try { localStorage.setItem('h2h-report-state-v3', JSON.stringify(state)); } catch (e) {} }
 
   function activeCols(){ return H2H.COLS.filter(function(c){ return state.cols[c.key]; }); }
 
@@ -436,7 +455,7 @@ var H2H = (function () {
   // ---- keep toggles
   $('keeplist').addEventListener('change', function(e){
     var id = e.target.getAttribute('data-id'); if (id == null) return;
-    if (e.target.checked) delete state.keep[id]; else state.keep[id] = false;
+    state.keep[id] = e.target.checked;
     persist(); renderAll(id);
   });
   $('keepAll').addEventListener('click', function(){ state.keep = {}; persist(); renderAll(); });
@@ -453,21 +472,19 @@ var H2H = (function () {
 
   function renderKeep(focusId){
     var box = $('keeplist');
-    if (!parsed.rows.length){ box.innerHTML = '<div class="empty">Paste data in step 1 to see the rows here.</div>'; $('warns').innerHTML=''; return; }
+    if (!parsed.rows.length){ box.innerHTML = '<div class="empty">Paste data in step 1 to see the rows here.</div>'; return; }
     var prevGroup = null, html = '<table><thead><tr><th><span class="sr" style="position:absolute;left:-9999px">Keep</span></th><th>Position</th><th>Sample Ident</th><th style="text-align:right">FE</th></tr></thead><tbody>';
     parsed.rows.forEach(function(r){
-      var role = report.roles[r.id], on = state.keep[r.id] !== false, cls = [];
+      var role = report.roles[r.id], on = H2H.isKept(r, state.keep), cls = [];
       if (!on) cls.push('off');
       if (role && role.group){ cls.push('g'); if (role.group % 2 === 0) cls.push('gb'); if (role.group !== prevGroup) cls.push('gstart'); prevGroup = role.group; }
       else if (role) cls.push('std');
-      if (role && role.mismatch) cls.push('bad');
       html += '<tr class="'+cls.join(' ')+'"><td class="chk"><input type="checkbox" data-id="'+r.id+'"'+(on?' checked':'')+' aria-label="Keep '+H2H.esc(r.ident)+'"></td>' +
-        '<td class="role">'+(role ? role.label : 'Left out')+'</td>' +
-        '<td class="ident">'+H2H.esc(r.ident)+(role && role.mismatch ? '<span class="flag">Name differs from group</span>' : '')+'</td>' +
+        '<td class="role">'+(role ? role.label : (r.noData && state.keep[r.id] !== false ? 'No results' : 'Left out'))+'</td>' +
+        '<td class="ident">'+H2H.esc(r.ident)+'</td>' +
         '<td class="num">'+H2H.esc(H2H.fmt(r.vals.FE,2))+'</td></tr>';
     });
     box.innerHTML = html + '</tbody></table>';
-    $('warns').innerHTML = report.warnings.map(function(w){ return '<li>'+H2H.esc(w)+'</li>'; }).join('');
     if (focusId != null){ var el = box.querySelector('input[data-id="'+focusId+'"]'); if (el) el.focus({preventScroll:true}); }
   }
 
@@ -479,7 +496,7 @@ var H2H = (function () {
     var s = report.keptCount + ' row' + (report.keptCount===1?'':'s') + ' kept: ' + report.standalone + ' standard' + (report.standalone===1?'':'s') + ', ' + report.groups + ' group' + (report.groups===1?'':'s') + '.';
     $('summary').textContent = s;
     var h = '<table class="xl"><thead><tr><th>Sample Ident</th>' + cols.map(function(c){ return '<th>'+c.key+'</th>'; }).join('') + '</tr></thead><tbody>';
-    report.out.forEach(function(e){
+    H2H.visible(report, state.showGroups).out.forEach(function(e){
       if (e.type === 'group') h += '<tr class="grp"><td>'+H2H.esc(e.name)+'</td>' + cols.map(function(){ return '<td></td>'; }).join('') + '</tr>';
       else h += '<tr><td>'+H2H.esc(e.row.ident)+'</td>' + cols.map(function(c){ return '<td>'+H2H.esc(H2H.fmt(e.row.vals[c.key], c.dp))+'</td>'; }).join('') + '</tr>';
     });
@@ -490,7 +507,7 @@ var H2H = (function () {
 
   // ---- copy for Excel (keeps header colour, grey group rows and decimals)
   $('copyBtn').addEventListener('click', function(){
-    var cb = H2H.clipboard(report, activeCols());
+    var cb = H2H.clipboard(H2H.visible(report, state.showGroups), activeCols());
     function fallback(){
       var div = document.createElement('div');
       div.contentEditable = 'true'; div.style.cssText = 'position:fixed;left:-9999px;top:0';
@@ -514,7 +531,7 @@ var H2H = (function () {
     return 'H2H_Report_' + d.getFullYear() + '-' + p(d.getMonth()+1) + '-' + p(d.getDate()) + '_' + p(d.getHours()) + p(d.getMinutes()) + '.xlsx';
   }
   $('dlBtn').addEventListener('click', function(){
-    var bytes = H2H.xlsx(report, activeCols()), name = fileName();
+    var bytes = H2H.xlsx(H2H.visible(report, state.showGroups), activeCols()), name = fileName();
     var blob = new Blob([bytes], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
     status('Preparing ' + name + '…');
     dlCap.then(function(dl){
@@ -531,12 +548,13 @@ var H2H = (function () {
     });
   });
 
+  $('showGroups').addEventListener('change', function(){ state.showGroups = this.checked; persist(); renderReport(); });
+
   // ---- start
+  $('showGroups').checked = state.showGroups;
   renderChips();
   $('std').value = state.std;
-  $('paste').value = state.text;
-  parsed = H2H.parse(state.text);
-  renderAll();
+  $('paste').value = state.text; parsed = H2H.parse(state.text); renderAll();
 })();
 </script>
 </body>
